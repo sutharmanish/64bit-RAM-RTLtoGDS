@@ -1,0 +1,19 @@
+Design Name: single_port_ram
+Run Directory: /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30
+----------------------------------------
+
+Magic DRC Summary:
+Source: /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/41-single_port_ram.lef.lvs.log
+Number of nets: 2849                       |Number of nets: 2849                       
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/44-arc.log
+Pin violations: 1
+Net violations: 1

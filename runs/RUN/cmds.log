@@ -1,0 +1,254 @@
+Sun Dec 24 10:45:31 UTC 2023 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/lefutil.py get_metal_layers -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/layers.list /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef}"
+
+Sun Dec 24 10:45:34 UTC 2023 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.nom.lef -i /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef {/home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Sun Dec 24 10:45:34 UTC 2023 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.min.lef -i /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef {/home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Sun Dec 24 10:45:34 UTC 2023 - Executing "{/openlane/scripts/mergeLef.py -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.max.lef -i /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef {/home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef} |& tee /dev/null}"
+
+Sun Dec 24 10:45:34 UTC 2023 - Executing "{python3 /openlane/scripts/mergeLib.py --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/merged.lib --name sky130A_merged /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib}"
+
+Sun Dec 24 10:45:36 UTC 2023 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/trimmed.lib /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/merged.lib}"
+
+Sun Dec 24 10:45:36 UTC 2023 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts.lib.exclude.list --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts.lib /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib}"
+
+Sun Dec 24 10:45:37 UTC 2023 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts-fastest.lib.exclude.list --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts-fastest.lib /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib}"
+
+Sun Dec 24 10:45:41 UTC 2023 - Executing "{python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts-slowest.lib.exclude.list --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/cts/cts-slowest.lib /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib}"
+
+Sun Dec 24 10:45:42 UTC 2023 - Executing "{python3 /openlane/scripts/new_tracks.py -i /home/mechx/.volare/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/routing/config.tracks}"
+
+Sun Dec 24 10:45:42 UTC 2023 - Executing "{echo {OpenLane 6c80fdbc5656ead52b5217a917afd8b94f90eee9} > /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/OPENLANE_VERSION}"
+
+Sun Dec 24 10:45:42 UTC 2023 - Executing "{yosys -c /openlane/scripts/yosys/blackbox.tcl}"
+
+Sun Dec 24 10:45:43 UTC 2023 - Executing "{verilator -Wall --lint-only --Wno-DECLFILENAME --top-module single_port_ram /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/blackbox/sky130_fd_sc_hd__blackbox.v /openlane/designs/ram/src/ram.v -Wno-fatal --relative-includes |& tee /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/synthesis/linter.log /dev/null}"
+
+Sun Dec 24 10:45:43 UTC 2023 - Executing "{sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/1-sky130_fd_sc_hd__tt_025C_1v80.no_pg.lib}"
+
+Sun Dec 24 10:45:44 UTC 2023 - Executing "{sed -E {s/^([[:space:]]+)pg_pin(.*)/\1pin\2\n\1    direction : "inout";/g} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/trimmed.lib > /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/synthesis/1-trimmed.no_pg.lib}"
+
+Sun Dec 24 10:45:44 UTC 2023 - Executing "yosys -c /openlane/scripts/yosys/synth.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/synthesis/1-synthesis.log"
+
+Sun Dec 24 10:45:44 UTC 2023 - Executing "{yosys -c /openlane/scripts/yosys/synth.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/synthesis/1-synthesis.log}"
+
+Sun Dec 24 10:45:50 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/results\/synthesis\/single_port_ram.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:45:50 UTC 2023 - Executing "{sed -i.bak /defparam/d /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/synthesis/single_port_ram.v}"
+
+Sun Dec 24 10:45:51 UTC 2023 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/synthesis/2-sta.log"
+
+Sun Dec 24 10:45:51 UTC 2023 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/synthesis/2-sta.log}"
+
+Sun Dec 24 10:45:53 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/3-initial_fp.log"
+
+Sun Dec 24 10:45:53 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/3-initial_fp.log}"
+
+Sun Dec 24 10:45:54 UTC 2023 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/defutil.py extract_core_dims --output-data /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/dimensions.txt --input-lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.nom.lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/floorplan/3-initial_fp.def}"
+
+Sun Dec 24 10:45:55 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/4-io.log"
+
+Sun Dec 24 10:45:55 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/4-io.log}"
+
+Sun Dec 24 10:45:56 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/tapcell.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/5-tap.log"
+
+Sun Dec 24 10:45:56 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/tapcell.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/5-tap.log}"
+
+Sun Dec 24 10:45:57 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/pdn.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/6-pdn.log"
+
+Sun Dec 24 10:45:57 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/pdn.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/floorplan/6-pdn.log}"
+
+Sun Dec 24 10:45:59 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/6-global_skip_io.log"
+
+Sun Dec 24 10:45:59 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/6-global_skip_io.log}"
+
+Sun Dec 24 10:46:01 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/placement\/7-global_skip_io.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:46:01 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/8-gpl_sta.log"
+
+Sun Dec 24 10:46:01 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/8-gpl_sta.log}"
+
+Sun Dec 24 10:46:04 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/9-io.log"
+
+Sun Dec 24 10:46:04 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/ioplacer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/9-io.log}"
+
+Sun Dec 24 10:46:05 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/9-global.log"
+
+Sun Dec 24 10:46:05 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/gpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/9-global.log}"
+
+Sun Dec 24 10:46:07 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/placement\/10-global.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:46:08 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/11-gpl_sta.log"
+
+Sun Dec 24 10:46:08 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/11-gpl_sta.log}"
+
+Sun Dec 24 10:46:11 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/resizer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/12-resizer.log"
+
+Sun Dec 24 10:46:11 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/resizer.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/12-resizer.log}"
+
+Sun Dec 24 10:46:18 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/placement\/12-resizer.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:46:18 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/dpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/13-detailed.log"
+
+Sun Dec 24 10:46:18 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/dpl.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/13-detailed.log}"
+
+Sun Dec 24 10:46:19 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/results\/placement\/single_port_ram.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:46:20 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/14-dpl_sta.log"
+
+Sun Dec 24 10:46:20 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/placement/14-dpl_sta.log}"
+
+Sun Dec 24 10:46:23 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/cts.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/15-cts.log"
+
+Sun Dec 24 10:46:23 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/cts.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/15-cts.log}"
+
+Sun Dec 24 10:47:43 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/16-cts_sta.log"
+
+Sun Dec 24 10:47:43 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/16-cts_sta.log}"
+
+Sun Dec 24 10:47:46 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/resizer_timing.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/17-resizer.log"
+
+Sun Dec 24 10:47:46 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_timing.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/cts/17-resizer.log}"
+
+Sun Dec 24 10:47:52 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/cts\/17-single_port_ram.resized.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:47:53 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_design.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/18-resizer_design.log"
+
+Sun Dec 24 10:47:53 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_routing_design.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/18-resizer_design.log}"
+
+Sun Dec 24 10:48:01 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/18-single_port_ram.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:48:01 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/19-rsz_design_sta.log"
+
+Sun Dec 24 10:48:01 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/19-rsz_design_sta.log}"
+
+Sun Dec 24 10:48:04 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/resizer_routing_timing.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/20-resizer_timing.log"
+
+Sun Dec 24 10:48:04 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/resizer_routing_timing.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/20-resizer_timing.log}"
+
+Sun Dec 24 10:48:09 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/20-single_port_ram.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:48:10 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/21-rsz_timing_sta.log"
+
+Sun Dec 24 10:48:10 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/21-rsz_timing_sta.log}"
+
+Sun Dec 24 10:48:13 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/repair_antennas.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/22-global.log"
+
+Sun Dec 24 10:48:13 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/repair_antennas.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/22-global.log}"
+
+Sun Dec 24 10:48:16 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/22-global_write_netlist.log"
+
+Sun Dec 24 10:48:16 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/22-global_write_netlist.log}"
+
+Sun Dec 24 10:48:17 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/routing\/global.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:48:18 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/24-grt_sta.log"
+
+Sun Dec 24 10:48:18 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/24-grt_sta.log}"
+
+Sun Dec 24 10:48:20 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/fill.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/25-fill.log"
+
+Sun Dec 24 10:48:20 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/fill.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/25-fill.log}"
+
+Sun Dec 24 10:48:21 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/routing\/25-fill.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:48:22 UTC 2023 - Executing "openroad -exit -metrics /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/routing/26-drt_metrics.json /openlane/scripts/openroad/droute.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/26-detailed.log"
+
+Sun Dec 24 10:48:22 UTC 2023 - Executing "{openroad -exit -metrics /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/routing/26-drt_metrics.json /openlane/scripts/openroad/droute.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/26-detailed.log}"
+
+Sun Dec 24 10:51:46 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/results\/routing\/single_port_ram.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:51:46 UTC 2023 - Executing "{python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/routing/drt.klayout.xml --design-name single_port_ram /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/routing/drt.drc}"
+
+Sun Dec 24 10:51:47 UTC 2023 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/wire_lengths.py --report-out /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/routing/27-wire_lengths.csv --input-lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.nom.lef --output-def /dev/null --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/routing/single_port_ram.odb /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/routing/single_port_ram.odb |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/routing/27-wire_lengths.log}"
+
+Sun Dec 24 10:51:49 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/28-parasitics_extraction.min.log"
+
+Sun Dec 24 10:51:49 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/28-parasitics_extraction.min.log}"
+
+Sun Dec 24 10:51:52 UTC 2023 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/29-rcx_mcsta.min.log"
+
+Sun Dec 24 10:51:52 UTC 2023 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/29-rcx_mcsta.min.log}"
+
+Sun Dec 24 10:52:06 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/30-parasitics_extraction.max.log"
+
+Sun Dec 24 10:52:06 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/30-parasitics_extraction.max.log}"
+
+Sun Dec 24 10:52:09 UTC 2023 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/31-rcx_mcsta.max.log"
+
+Sun Dec 24 10:52:09 UTC 2023 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/31-rcx_mcsta.max.log}"
+
+Sun Dec 24 10:52:23 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/32-parasitics_extraction.nom.log"
+
+Sun Dec 24 10:52:23 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/rcx.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/32-parasitics_extraction.nom.log}"
+
+Sun Dec 24 10:52:26 UTC 2023 - Executing "sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/33-rcx_mcsta.nom.log"
+
+Sun Dec 24 10:52:26 UTC 2023 - Executing "{sta -exit -no_init /openlane/scripts/openroad/sta/multi_corner.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/33-rcx_mcsta.nom.log}"
+
+Sun Dec 24 10:52:41 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/irdrop.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/34-irdrop.log"
+
+Sun Dec 24 10:52:41 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/irdrop.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/34-irdrop.log}"
+
+Sun Dec 24 10:52:45 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-gdsii.log"
+
+Sun Dec 24 10:52:45 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-gdsii.log}"
+
+Sun Dec 24 10:52:49 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-gds_ptrs.log"
+
+Sun Dec 24 10:52:49 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-gds_ptrs.log}"
+
+Sun Dec 24 10:52:51 UTC 2023 - Executing "{sed -i.bak -n {/^<< properties >>/,/^<< end >>/p} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/signoff/gds_ptrs.mag}"
+
+Sun Dec 24 10:52:52 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-lef.log"
+
+Sun Dec 24 10:52:52 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-lef.log}"
+
+Sun Dec 24 10:52:55 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-maglef.log"
+
+Sun Dec 24 10:52:55 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/35-maglef.log}"
+
+Sun Dec 24 10:52:56 UTC 2023 - Executing "{python3 /openlane/scripts/klayout/stream_out.py --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/signoff/single_port_ram.klayout.gds --lyt /home/mechx/.volare/sky130A/libs.tech/klayout/tech/sky130A.lyt --lym /home/mechx/.volare/sky130A/libs.tech/klayout/tech/sky130A.map --lyp /home/mechx/.volare/sky130A/libs.tech/klayout/tech/sky130A.lyp --top single_port_ram --with-gds-file /home/mechx/.volare/sky130A/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds --input-lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.nom.lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/routing/single_port_ram.def |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/36-gdsii-klayout.log}"
+
+Sun Dec 24 10:53:00 UTC 2023 - Executing "{klayout -b -r /openlane/scripts/klayout/xor.drc -rd a=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/signoff/single_port_ram.gds -rd b=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/signoff/single_port_ram.klayout.gds -rd jobs=1 -rd rdb_out=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/37-xor.xml -rd ignore=81/14 -rd rpt_out=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/37-xor.rpt |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/37-xor.log}"
+
+Sun Dec 24 10:53:09 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/38-spice.log"
+
+Sun Dec 24 10:53:09 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/38-spice.log}"
+
+Sun Dec 24 10:53:18 UTC 2023 - Executing "{openroad -exit -no_init -python /openlane/scripts/odbpy/power_utils.py write_powered_def --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/signoff/38-single_port_ram.p.def --input-lef /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/merged.nom.lef --power-port VPWR --ground-port VGND --powered-netlist {} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/routing/single_port_ram.def |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/39-write_powered_def.log}"
+
+Sun Dec 24 10:53:19 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/39-write_powered_verilog.log"
+
+Sun Dec 24 10:53:20 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/write_views.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/39-write_powered_verilog.log}"
+
+Sun Dec 24 10:53:21 UTC 2023 - Executing "{sed -i.bak -e {s/\(set ::env(CURRENT_NETLIST)\).*/\1 \/openlane\/designs\/ram\/runs\/RUN_2023.12.24_10.45.30\/tmp\/signoff\/38-single_port_ram.nl.v/} /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/config.tcl}"
+
+Sun Dec 24 10:53:22 UTC 2023 - Executing "{netgen -batch source /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/tmp/signoff/41-setup_file.lef.lvs |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/41-lvs.lef.log}"
+
+Sun Dec 24 10:53:23 UTC 2023 - Executing "magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/42-drc.log"
+
+Sun Dec 24 10:53:23 UTC 2023 - Executing "{magic -noconsole -dnull -rcfile /home/mechx/.volare/sky130A/libs.tech/magic/sky130A.magicrc < /openlane/scripts/magic/wrapper.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/42-drc.log}"
+
+Sun Dec 24 10:53:48 UTC 2023 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_tcl -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.tcl /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.rpt}"
+
+Sun Dec 24 10:53:49 UTC 2023 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_tr -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.tr /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.rpt}"
+
+Sun Dec 24 10:53:49 UTC 2023 - Executing "{python3 /openlane/scripts/drc_rosetta.py tr to_klayout -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.klayout.xml --design-name single_port_ram /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.tr}"
+
+Sun Dec 24 10:53:49 UTC 2023 - Executing "{python3 /openlane/scripts/drc_rosetta.py magic to_rdb -o /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.rdb /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/drc.rpt}"
+
+Sun Dec 24 10:53:49 UTC 2023 - Executing "{klayout -b -zz -r /home/mechx/.volare/sky130A/libs.tech/klayout/drc/sky130A_mr.drc -rd topcell=single_port_ram -rd input=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/results/signoff/single_port_ram.gds -rd report=/openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/violations.xml -rd feol=true -rd beol=true -rd floating_metal=false -rd seal=true -rd thread=1 |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/43-drc-klayout.log}"
+
+Sun Dec 24 10:54:19 UTC 2023 - Executing "{python3 /openlane/scripts/klayout/xml_drc_report_to_json.py --xml-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/violations.xml --json-file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/violations.json}"
+
+Sun Dec 24 10:54:20 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/antenna_check.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/44-arc.log"
+
+Sun Dec 24 10:54:20 UTC 2023 - Executing "{openroad -exit /openlane/scripts/openroad/antenna_check.tcl |& tee /dev/null /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/44-arc.log}"
+
+Sun Dec 24 10:54:21 UTC 2023 - Executing "{python3 /openlane/scripts/extract_antenna_violators.py --output /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/44-antenna_violators.rpt --plain-out /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/signoff/44-antenna_violators_pins.txt /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/logs/signoff/44-arc.log}"
+
+Sun Dec 24 10:54:22 UTC 2023 - Executing "{python3 /openlane/scripts/write_runtime.py --conclude --seconds --time-in 1703415262 {flow completed}}"
+
+Sun Dec 24 10:54:22 UTC 2023 - Executing "{python3 /openlane/scripts/generate_reports.py -d /openlane/designs/ram --design_name single_port_ram --tag RUN_2023.12.24_10.45.30 --output_file /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/metrics.csv --man_report /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30/reports/manufacturability.rpt --run_path /openlane/designs/ram/runs/RUN_2023.12.24_10.45.30}"
+
